@@ -130,16 +130,32 @@ const database = {
         {id: 4, name: `Cream It Up Cafe`},
     ],
     customers: [
-        {id: 1, name: `James Thomas`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 4}, {productId: 3, rating: 2}, {productId: 4, rating: 3}, {productId: 5, rating: 5}]},
-        {id: 2, name: `Terrance Blanard`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 3}, {productId: 3, rating: 3}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
-        {id: 3, name: `Kyle Cordara`, customerRatings: [{productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 1, name: `James Thomas`, customerRatings: [{productId: 1, rating: 5}]},
+        {id: 2, name: `Terrance Blanard`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 3}]},
+        {id: 3, name: `Kyle Cordara`, customerRatings: [{productId: 4, rating: 5}]},
         {id: 4, name: `Benjamin Baker`, customerRatings: [{productId: 1, rating: 5}]},
-        {id: 5, name: `Carlos Santos`, customerRatings: [{productId: 1, rating: 1}, {productId: 2, rating: 1}, {productId: 3, rating: 1}, {productId: 4, rating: 1}]},
-        {id: 6, name: `Pompadillio Armadillo`, customerRatings: [{productId: 3, rating: 5}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 5, name: `Carlos Santos`, customerRatings: [{productId: 4, rating: 1}]},
+        {id: 6, name: `Pompadillo Armadillio`, customerRatings: [{productId: 2, rating: 5}]},
         {id: 7, name: `Curt Arborcurds`, customerRatings: [{productId: 1, rating: 5}, {productId: 5, rating: 5}]},
-        {id: 8, name: `Candace Traveca`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 5}, {productId: 3, rating: 5}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
-        {id: 9, name: `Jennifer Jackson`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 4}, {productId: 3, rating: 4}, {productId: 5, rating: 4}]},
+        {id: 8, name: `Candace Traveca`, customerRatings: [{productId: 2, rating: 5}]},
+        {id: 9, name: `Jennifer Jackson`, customerRatings: [{productId: 3, rating: 4}, {productId: 5, rating: 4}]},
         {id: 10, name: `Priscilla Bowman`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 4}]},
+    ],
+    customerRatings: [
+        {id: 1, customerId: 1, productId: 1, rating: 5},
+        {id: 2, customerId: 2, productId: 1, rating: 4},
+        {id: 3, customerId: 2, productId: 2, rating: 3},
+        {id: 4, customerId: 3, productId: 1, rating: 5},
+        {id: 5, customerId: 4, productId: 1, rating: 5},
+        {id: 6, customerId: 5, productId: 4, rating: 1},
+        {id: 7, customerId: 6, productId: 2, rating: 5},
+        {id: 8, customerId: 7, productId: 1, rating: 5},
+        {id: 9, customerId: 7, productId: 5, rating: 5},
+        {id: 10, customerId: 8, productId: 2, rating: 5},
+        {id: 11, customerId: 9, productId: 3, rating: 4},
+        {id: 12, customerId: 9, productId: 5, rating: 4},
+        {id: 13, customerId: 10, productId: 3, rating: 4},
+        {id: 14, customerId: 10, productId: 2, rating: 4},
     ]
 }
 
@@ -155,3 +171,9 @@ export const getOrders = () => {
     return database.orders.map(order => ({...order}))
 }
 
+export const getCustomers = () => {
+    return database.customers.map(customer => ({...customer}))
+}
+export const getCustomerRatings = () => {
+    return database.customerRatings.map(rating => ({...rating}))
+}
