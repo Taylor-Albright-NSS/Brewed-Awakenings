@@ -10,83 +10,83 @@ const database = {
         id: 1,
         name: "Alphonse Meron",
         email: "ameron0@mashable.com",
-        hourlyRate: 11.50
-
+        hourlyRate: 11.50,
+        location: 1,
     }, {
         id: 2,
         name: "Damara Pentecust",
         email: "dpentecust1@apache.org",
-        hourlyRate: 10.75
-
+        hourlyRate: 10.75,
+        location: 1,
     }, {
         id: 3,
         name: "Anna Bowton",
         email: "abowton2@wisc.edu",
-        hourlyRate: 12.30
-
+        hourlyRate: 12.30,
+        location: 2,
     }, {
         id: 4,
         name: "Hunfredo Drynan",
         email: "hdrynan3@bizjournals.com",
-        hourlyRate: 12.00
-
+        hourlyRate: 12.00,
+        location: 3,
     }, {
         id: 5,
         name: "Elmira Bick",
         email: "ebick4@biblegateway.com",
-        hourlyRate: 12.30
-
+        hourlyRate: 12.30,
+        location: 4,
     }, {
         id: 6,
         name: "Bernie Dreger",
         email: "bdreger5@zimbio.com",
-        hourlyRate: 11.50
-
+        hourlyRate: 11.50,
+        location: 2,
     }, {
         id: 7,
         name: "Rolando Gault",
         email: "rgault6@google.com",
-        hourlyRate: 11.80
-
+        hourlyRate: 11.80,
+        location: 4,
     }, {
         id: 8,
         name: "Tiffanie Tubby",
         email: "ttubby7@intel.com",
-        hourlyRate: 21.00
-
+        hourlyRate: 21.00,
+        location: 1,
     }, {
         id: 9,
         name: "Tomlin Cutill",
         email: "tcutill8@marketwatch.com",
-        hourlyRate: 12.10
-
+        hourlyRate: 12.10,
+        location: 3,
     }, {
         id: 10,
         name: "Arv Biddle",
         email: "abiddle9@cafepress.com",
-        hourlyRate: 13.00
-
+        hourlyRate: 13.00,
+        location: 4
     }],
     products: [{
-        id: 1, name: "Large Coffee", price: 6.00
+        id: 1, name: "Large Coffee", price: 6.00,
     }, {
-        id: 2, name: "Latte", price: 8.99
+        id: 2, name: "Latte", price: 8.99, 
     }, {
-        id: 3, name: "Blueberry Muffin", price: 9.49
+        id: 3, name: "Blueberry Muffin", price: 9.49,
     }, {
-        id: 4, name: "Scone", price: 7.56
+        id: 4, name: "Scone", price: 7.56,
     }, {
-        id: 5, name: "Bran Muffin", price: 9.10
+        id: 5, name: "Bran Muffin", price: 9.10,
     }, {
-        id: 6, name: "Mocha Latte", price: 12.99
+        id: 6, name: "Mocha Latte", price: 12.99,
     }, {
-        id: 7, name: "Espresso", price: 11.80
+        id: 7, name: "Espresso", price: 11.80,
     }, {
-        id: 8, name: "Americano", price: 11.00
+        id: 8, name: "Americano", price: 11.00,
     }, {
-        id: 9, name: "Cubano", price: 14.99
+        id: 9, name: "Cubano", price: 14.99,
     }, {
-        id: 10, name: "Cappucino", price: 12.49
+        id: 10, name: "Cappucino", price: 12.49,
     }],
     orders: [{
         id: 1, productId: 10, employeeId: 5, timestamp: 1613538111396
@@ -122,7 +122,25 @@ const database = {
         id: 16, productId: 4, employeeId: 7, timestamp: 1612638112396
     }, {
         id: 17, productId: 4, employeeId: 10, timestamp: 1612638112396
-    }]
+    }],
+    locations: [
+        {id: 1, name: `The Coffee House`},
+        {id: 2, name: `Black Heart Brewery`},
+        {id: 3, name: `Bitter Sweet Bar`},
+        {id: 4, name: `Cream It Up Cafe`},
+    ],
+    customers: [
+        {id: 1, name: `James Thomas`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 4}, {productId: 3, rating: 2}, {productId: 4, rating: 3}, {productId: 5, rating: 5}]},
+        {id: 2, name: `Terrance Blanard`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 3}, {productId: 3, rating: 3}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 3, name: `Kyle Cordara`, customerRatings: [{productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 4, name: `Benjamin Baker`, customerRatings: [{productId: 1, rating: 5}]},
+        {id: 5, name: `Carlos Santos`, customerRatings: [{productId: 1, rating: 1}, {productId: 2, rating: 1}, {productId: 3, rating: 1}, {productId: 4, rating: 1}]},
+        {id: 6, name: `Pompadillio Armadillo`, customerRatings: [{productId: 3, rating: 5}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 7, name: `Curt Arborcurds`, customerRatings: [{productId: 1, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 8, name: `Candace Traveca`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 5}, {productId: 3, rating: 5}, {productId: 4, rating: 5}, {productId: 5, rating: 5}]},
+        {id: 9, name: `Jennifer Jackson`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 4}, {productId: 3, rating: 4}, {productId: 5, rating: 4}]},
+        {id: 10, name: `Priscilla Bowman`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 4}]},
+    ]
 }
 
 export const getProducts = () => {

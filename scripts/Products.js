@@ -26,9 +26,7 @@ export const Products = () => {
         >${product.name}
         </li>`
     }
-
     html += "</ul>"
-
     return html
 }
 
