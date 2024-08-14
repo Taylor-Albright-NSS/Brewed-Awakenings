@@ -150,15 +150,15 @@ const database = {
         {id: 3, customerId: 2, productId: 2, rating: 3, reviewMessage: 'I hate this place!'},
         {id: 4, customerId: 3, productId: 1, rating: 5, reviewMessage: 'Who wouldnt love this!'},
         {id: 5, customerId: 4, productId: 1, rating: 5, reviewMessage: 'I could eat or drink this all day long!'},
-        {id: 6, customerId: 5, productId: 4, rating: 1, reviewMessage: 'I hate this place!'},
-        {id: 7, customerId: 6, productId: 2, rating: 5, reviewMessage: 'I hate this place!'},
+        {id: 6, customerId: 5, productId: 4, rating: 1, reviewMessage: 'It is so so!'},
+        {id: 7, customerId: 6, productId: 2, rating: 5, reviewMessage: 'I always come back to get this!'},
         {id: 8, customerId: 7, productId: 1, rating: 5, reviewMessage: 'SO GOOD!'},
-        {id: 9, customerId: 7, productId: 5, rating: 5, reviewMessage: 'I hate this place!'},
-        {id: 10, customerId: 8, productId: 2, rating: 5, reviewMessage: 'I hate this place!'},
-        {id: 11, customerId: 9, productId: 3, rating: 4, reviewMessage: 'I hate this place!'},
-        {id: 12, customerId: 9, productId: 5, rating: 4, reviewMessage: 'I hate this place!'},
-        {id: 13, customerId: 10, productId: 3, rating: 4, reviewMessage: 'I hate this place!'},
-        {id: 14, customerId: 10, productId: 2, rating: 4, reviewMessage: 'I hate this place!'},
+        {id: 9, customerId: 7, productId: 5, rating: 5, reviewMessage: 'This is my favorite!'},
+        {id: 10, customerId: 8, productId: 2, rating: 5, reviewMessage: 'Second to none!'},
+        {id: 11, customerId: 9, productId: 3, rating: 4, reviewMessage: 'First place in my heart!'},
+        {id: 12, customerId: 9, productId: 5, rating: 4, reviewMessage: 'YUM!'},
+        {id: 13, customerId: 10, productId: 3, rating: 4, reviewMessage: 'Nothing is better than this!'},
+        {id: 14, customerId: 10, productId: 2, rating: 4, reviewMessage: 'SUPER!'},
     ],
     productLocations: [
         {id: 1, productId: 1, locationId: 1},
@@ -174,7 +174,23 @@ const database = {
         {id: 11, productId: 10, locationId: 3},
         {id: 12, productId: 1, locationId: 4},
         {id: 13, productId: 5, locationId: 4},
-
+    ],
+    employeesLocations: [
+        {id: 1, employeeId: 1, locationId: 1},
+        {id: 2, employeeId: 1, locationId: 2},
+        {id: 3, employeeId: 2, locationId: 1},
+        {id: 4, employeeId: 3, locationId: 4},
+        {id: 5, employeeId: 4, locationId: 3},
+        {id: 6, employeeId: 4, locationId: 4},
+        {id: 7, employeeId: 4, locationId: 1},
+        {id: 8, employeeId: 5, locationId: 2},
+        {id: 9, employeeId: 5, locationId: 3},
+        {id: 10, employeeId: 6, locationId: 1},
+        {id: 11, employeeId: 7, locationId: 1},
+        {id: 12, employeeId: 8, locationId: 4},
+        {id: 13, employeeId: 9, locationId: 3},
+        {id: 14, employeeId: 10, locationId: 4},
+        {id: 15, employeeId: 10, locationId: 3},
     ]
 }
 
@@ -201,4 +217,7 @@ export const getCustomerRatings = () => {
 }
 export const getProductLocations = () => {
     return database.productLocations.map(location => ({...location}))
+}
+export const getEmployeesLocations = () => {
+    return database.employeesLocations.map(location => ({...location}))
 }

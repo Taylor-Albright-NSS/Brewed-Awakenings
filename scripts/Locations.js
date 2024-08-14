@@ -11,6 +11,10 @@ document.addEventListener(
     (clickEvent) => {
         const clickTarget = clickEvent.target
         if (clickTarget.dataset.type === "location") {
+            // If what you're click on's ID matches the Join Table's ID of that type (clickTarget's data ID === joinTable.locationId),
+            // then check the Join Table's other ID with the other value you're trying to find (joinTable.customerId === customer.id)
+            // In this many to many relationship, it's looking like the logic steps are FOR -> IF -> FOR -> IF
+
             let locationName = clickTarget.dataset.name
             let productsSold = ''
             for (const pLocation of productLocations) {

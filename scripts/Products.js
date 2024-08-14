@@ -11,6 +11,10 @@ document.addEventListener(
     (clickEvent) => {
         const clickTarget = clickEvent.target
         if (clickTarget.dataset.type == 'product') {
+            // If what you're click on's ID matches the Join Table's ID of that type (clickTarget's data ID === joinTable.productId),
+            // then check the Join Table's other ID with the other value you're trying to find (joinTable.customerId === customer.id)
+            // In this many to many relationship, it's looking like the logic steps are FOR -> IF -> FOR -> IF
+            
             let productNameAndPriceString = ``
             let timesReviewed = 0
             let totalRatingValue = 0
@@ -40,7 +44,7 @@ document.addEventListener(
             window.alert(`${productNameAndPriceString}
 This product has been reviewed ${timesReviewed} times.
 ${averageRating}.
-This product has been reviewed by:
+This product has been reviewed by:\n
 ${customerName}                
 `)
         }
