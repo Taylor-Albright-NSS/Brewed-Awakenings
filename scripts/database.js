@@ -6,6 +6,8 @@
 
 */
 const database = {
+    //Regular entities: employees, products, orders, locations, customers
+    //Join table entities: employees_locations, products_locations, customerRating_products
     employees: [{
         id: 1,
         name: "Alphonse Meron",
@@ -111,7 +113,7 @@ const database = {
     }, {
         id: 11, productId: 4, employeeId: 1, timestamp: 1612338112396
     }, {
-        id: 12, productId: 6, employeeId: 11, timestamp: 1612238112396
+        id: 12, productId: 6, employeeId: 4, timestamp: 1612238112396
     }, {
         id: 13, productId: 10, employeeId: 8, timestamp: 1630538112396
     }, {
@@ -130,37 +132,57 @@ const database = {
         {id: 4, name: `Cream It Up Cafe`},
     ],
     customers: [
-        {id: 1, name: `James Thomas`, customerRatings: [{productId: 1, rating: 5}]},
-        {id: 2, name: `Terrance Blanard`, customerRatings: [{productId: 1, rating: 4}, {productId: 2, rating: 3}]},
-        {id: 3, name: `Kyle Cordara`, customerRatings: [{productId: 4, rating: 5}]},
-        {id: 4, name: `Benjamin Baker`, customerRatings: [{productId: 1, rating: 5}]},
-        {id: 5, name: `Carlos Santos`, customerRatings: [{productId: 4, rating: 1}]},
-        {id: 6, name: `Pompadillo Armadillio`, customerRatings: [{productId: 2, rating: 5}]},
-        {id: 7, name: `Curt Arborcurds`, customerRatings: [{productId: 1, rating: 5}, {productId: 5, rating: 5}]},
-        {id: 8, name: `Candace Traveca`, customerRatings: [{productId: 2, rating: 5}]},
-        {id: 9, name: `Jennifer Jackson`, customerRatings: [{productId: 3, rating: 4}, {productId: 5, rating: 4}]},
-        {id: 10, name: `Priscilla Bowman`, customerRatings: [{productId: 1, rating: 5}, {productId: 2, rating: 4}]},
+        {id: 1, name: `James Thomas`},
+        {id: 2, name: `Terrance Blanard`},
+        {id: 3, name: `Kyle Cordara`},
+        {id: 4, name: `Benjamin Baker`},
+        {id: 5, name: `Carlos Santos`},
+        {id: 6, name: `Pompadillo Armadillio`},
+        {id: 7, name: `Curt Arborcurds`},
+        {id: 8, name: `Candace Traveca`},
+        {id: 9, name: `Jennifer Jackson`},
+        {id: 10, name: `Priscilla Bowman`},
     ],
+    //Join table entities
     customerRatings: [
-        {id: 1, customerId: 1, productId: 1, rating: 5},
-        {id: 2, customerId: 2, productId: 1, rating: 4},
-        {id: 3, customerId: 2, productId: 2, rating: 3},
-        {id: 4, customerId: 3, productId: 1, rating: 5},
-        {id: 5, customerId: 4, productId: 1, rating: 5},
-        {id: 6, customerId: 5, productId: 4, rating: 1},
-        {id: 7, customerId: 6, productId: 2, rating: 5},
-        {id: 8, customerId: 7, productId: 1, rating: 5},
-        {id: 9, customerId: 7, productId: 5, rating: 5},
-        {id: 10, customerId: 8, productId: 2, rating: 5},
-        {id: 11, customerId: 9, productId: 3, rating: 4},
-        {id: 12, customerId: 9, productId: 5, rating: 4},
-        {id: 13, customerId: 10, productId: 3, rating: 4},
-        {id: 14, customerId: 10, productId: 2, rating: 4},
+        {id: 1, customerId: 1, productId: 1, rating: 5, reviewMessage: 'I LOVE this product!'},
+        {id: 2, customerId: 2, productId: 1, rating: 4, reviewMessage: 'This product is great!'},
+        {id: 3, customerId: 2, productId: 2, rating: 3, reviewMessage: 'I hate this place!'},
+        {id: 4, customerId: 3, productId: 1, rating: 5, reviewMessage: 'Who wouldnt love this!'},
+        {id: 5, customerId: 4, productId: 1, rating: 5, reviewMessage: 'I could eat or drink this all day long!'},
+        {id: 6, customerId: 5, productId: 4, rating: 1, reviewMessage: 'I hate this place!'},
+        {id: 7, customerId: 6, productId: 2, rating: 5, reviewMessage: 'I hate this place!'},
+        {id: 8, customerId: 7, productId: 1, rating: 5, reviewMessage: 'SO GOOD!'},
+        {id: 9, customerId: 7, productId: 5, rating: 5, reviewMessage: 'I hate this place!'},
+        {id: 10, customerId: 8, productId: 2, rating: 5, reviewMessage: 'I hate this place!'},
+        {id: 11, customerId: 9, productId: 3, rating: 4, reviewMessage: 'I hate this place!'},
+        {id: 12, customerId: 9, productId: 5, rating: 4, reviewMessage: 'I hate this place!'},
+        {id: 13, customerId: 10, productId: 3, rating: 4, reviewMessage: 'I hate this place!'},
+        {id: 14, customerId: 10, productId: 2, rating: 4, reviewMessage: 'I hate this place!'},
+    ],
+    productLocations: [
+        {id: 1, productId: 1, locationId: 1},
+        {id: 2, productId: 2, locationId: 1},
+        {id: 3, productId: 8, locationId: 1},
+        {id: 4, productId: 7, locationId: 2},
+        {id: 5, productId: 9, locationId: 2},
+        {id: 6, productId: 1, locationId: 2},
+        {id: 7, productId: 3, locationId: 2},
+        {id: 8, productId: 1, locationId: 3},
+        {id: 9, productId: 4, locationId: 3},
+        {id: 10, productId: 6, locationId: 3},
+        {id: 11, productId: 10, locationId: 3},
+        {id: 12, productId: 1, locationId: 4},
+        {id: 13, productId: 5, locationId: 4},
+
     ]
 }
 
 export const getProducts = () => {
     return database.products.map(product => ({...product}))
+}
+export const getLocations = () => {
+    return database.locations.map(location => ({...location}))
 }
 
 export const getEmployees = () => {
@@ -176,4 +198,7 @@ export const getCustomers = () => {
 }
 export const getCustomerRatings = () => {
     return database.customerRatings.map(rating => ({...rating}))
+}
+export const getProductLocations = () => {
+    return database.productLocations.map(location => ({...location}))
 }

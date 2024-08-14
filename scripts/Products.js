@@ -1,5 +1,6 @@
 import { getProducts } from "./database.js"
 import { getCustomers } from "./database.js"
+import { getCustomerRatings } from "./database.js"
 
 const products = getProducts()
 const customers = getCustomers()
@@ -10,45 +11,38 @@ document.addEventListener(
     (clickEvent) => {
         const clickTarget = clickEvent.target
         if (clickTarget.dataset.type == 'product') {
-        let reviewCount = 0
-        let ratingTotal = 0
-        //Calculates total customer rating to get the averages of all customer input
-        for (const customer of customers) {
-            for (const review of customer.customerRatings) {
-                if (review.productId === parseInt(clickTarget.dataset.id)) {
-                    reviewCount++
-                    ratingTotal += review.rating
-                }
-            }
-        }
-        let averageRating = isNaN(ratingTotal / reviewCount) ? 0 : (ratingTotal / reviewCount).toFixed(2)
-
-            //Product pricing event
+            let productNameAndPriceString = ``
+            let timesReviewed = 0
+            let totalRatingValue = 0
+            let customerName = ''
             for (const product of products) {
                 if (product.id === parseInt(clickTarget.dataset.id)) {
-                    //Product name + cost + customer name + customer's rating
-                    let customerString = ``
-                    for (const customer of customers) {
-                        // customerString += `${customer.name}: `
-                        let customerName = customer.name
-                        for (const review of customer.customerRatings) {
-                            if (review.productId === parseInt(clickTarget.dataset.id)) {
-                                customerString += `
-                                ${customerName}: ${review.rating}`
-                            }
-                        }
-                    }
-                    window.alert(`
-                        ${product.name} costs $${product.price}.
-                        This item has been reviewed ${reviewCount} times.
-                        This item has an average rating of ${averageRating}.
-                        This item has been reviewed by: 
-                        ${customerString}
-                        `)
+                    productNameAndPriceString += `${product.name} costs $${product.price}.`
                 }
             }
-            //Customer reviews event
-
+            for (const rating of customerRatings) {
+                if (rating.productId === parseInt(clickTarget.dataset.id)) {
+                    totalRatingValue += rating.rating
+                    timesReviewed++
+                }
+            }
+            for (const rating of customerRatings) {
+                if (rating.productId === parseInt(clickTarget.dataset.id)) {
+                    for (const customer of customers) {
+                        if (customer.id === rating.customerId) {
+                            customerName += `${customer.name}: ${rating.rating}\n${rating.reviewMessage}\n\n`
+                        }
+                    }
+                }
+            }
+            customerName = customerName.length == 0 ? 'nobody' : customerName
+            let averageRating = isNaN(totalRatingValue / timesReviewed) ? '(no average rating because nobody has rated)' : `This product has an average rating of ` + (totalRatingValue / timesReviewed).toFixed(2)
+            window.alert(`${productNameAndPriceString}
+This product has been reviewed ${timesReviewed} times.
+${averageRating}.
+This product has been reviewed by:
+${customerName}                
+`)
         }
     }
 )
